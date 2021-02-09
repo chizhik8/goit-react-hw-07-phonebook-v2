@@ -1,28 +1,35 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { combineReducers } from "redux";
+import { createReducer } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
 // import actionTypes from '../constants/contactsActionTypes';
-import contactsAction from "../actions/contactsAction";
+import contactsAction from '../actions/contactsAction';
 
 // ----------------------Contacts---------------------------------------
 
 const itemsReducer = createReducer([], {
-  [contactsAction.fetchContactsSuccess]: (state, action) => action.payload,
+  [contactsAction.fetchContactsSuccess]: (state, action) => {
+    // console.log(action.payload);
+    return action.payload;
+  },
+
   [contactsAction.addContactsSuccess]: (state, action) => {
     return state.find(
-      (contact) =>
-        contact.name.toLowerCase() === action.payload.name.toLowerCase()
+      contact =>
+        contact.name.toLowerCase() === action.payload.name.toLowerCase(),
     )
       ? alert(`${action.payload.name} is already in contacts `)
       : [...state, action.payload];
   },
 
-  [contactsAction.removeContactsSuccess]: (state, action) =>
-    state.filter((contact) => contact.id !== action.payload),
+  [contactsAction.removeContactsSuccess]: (state, action) => {
+    return state.filter(contact => contact.id !== action.payload);
+  },
 });
 
 // ----------------Filter--------------------------------------------
-const filterReducer = createReducer("", {
-  [contactsAction.addFilter]: (state, action) => action.payload.filter,
+const filterReducer = createReducer('', {
+  [contactsAction.addFilter]: (state, action) => {
+    return action.payload.filter;
+  },
 });
 
 // ----------------Loader-------------------------------------------

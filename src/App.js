@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import ContactForm from "./components/ContactForm/ContactForm";
-import ContactList from "./components/ContactList/ContactList";
-import Filter from "./components/Filter/Filter";
-import contactsOperation from "../src/redux/operations/contactsOperation";
-import contactsSelectors from "./redux/selectors/contactsSelectors";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import ContactForm from './components/ContactForm/ContactForm';
+import ContactList from './components/ContactList/ContactList';
+import Filter from './components/Filter/Filter';
+import contactsOperation from '../src/redux/operations/contactsOperation';
+import contactsSelectors from './redux/selectors/contactsSelectors';
 
 export class App extends Component {
   componentDidMount() {
@@ -28,7 +28,7 @@ export class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   isLoadingContacts: contactsSelectors.getLoading(state),
   contacts: contactsSelectors.getContactItems(state),
   isAlertContacts: contactsSelectors.getAlert(state),

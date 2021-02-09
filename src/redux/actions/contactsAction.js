@@ -1,31 +1,22 @@
-import { createAction } from "@reduxjs/toolkit";
-// import { v4 as uuidv4 } from "uuid";
+import { createAction } from '@reduxjs/toolkit';
 
 // ---------------Add contacts--------------------------
-const addContactsRequest = createAction("contacts/addRequest");
-const addContactsSuccess = createAction("contacts/addSuccess");
-const addContactsError = createAction("contacts/addError");
+const addContactsRequest = createAction('contacts/addRequest');
+const addContactsSuccess = createAction('contacts/addSuccess');
+const addContactsError = createAction('contacts/addError');
 
-const fetchContactsRequest = createAction("contacts/fetchRequest");
-const fetchContactsSuccess = createAction("contacts/fetchSuccess");
-const fetchContactsError = createAction("contacts/fetchError");
-
-// const addContacts = createAction("contacts/add", (name, number) => ({
-//   payload: { contact: { id: uuidv4(), name, number } },
-// }));
+const fetchContactsRequest = createAction('contacts/fetchRequest');
+const fetchContactsSuccess = createAction('contacts/fetchSuccess');
+const fetchContactsError = createAction('contacts/fetchError');
 
 // ---------------Remove contacts--------------------------
 
-const removeContactsRequest = createAction("contacts/removeRequest");
-const removeContactsSuccess = createAction("contacts/removeSuccess");
-const removeContactsError = createAction("contacts/removeError");
-
-// const removeContact = createAction("contacts/remove", (contactId) => ({
-//   payload: { contactId },
-// }));
+const removeContactsRequest = createAction('contacts/removeRequest');
+const removeContactsSuccess = createAction('contacts/removeSuccess');
+const removeContactsError = createAction('contacts/removeError');
 
 // ---------------Filter--------------------------
-const addFilter = createAction("contacts/addFilter", (filter) => ({
+const addFilter = createAction('contacts/addFilter', filter => ({
   payload: { filter },
 }));
 
@@ -41,7 +32,5 @@ export default {
   removeContactsSuccess,
   removeContactsRequest,
   removeContactsError,
-  // addContacts,
-  // removeContact,
   addFilter,
 };
